@@ -1,0 +1,21 @@
+name: 'Noir Action'
+description: 'Detecting Endpoint with Noir'
+branding:
+  color: gray-dark
+  icon: Hash
+inputs:
+  base_path:
+    description: 'Base path'
+    required: true
+  url:
+    description: 'Target URL'
+    required: false
+outputs:
+  RESULT: 
+    description: 'Scan Result'    
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.base_path }}
+    - ${{ inputs.url }}
